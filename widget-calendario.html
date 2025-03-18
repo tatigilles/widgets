@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widget de reserva com calendário</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://go.guiademoteis.com.br/go-sites/go.min.css"
+    />
+    <link rel="stylesheet" href="css/widget-calendario.css">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        font-family: "Open Sans", sans-serif;
+        box-sizing: border-box;
+      }
+      header {
+        padding: 60px 15px 20px;
+      }
+      .back {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        z-index: 10;
+        cursor: pointer;
+      }
+      .back a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      header h1 {
+        text-align: center;
+        font-size: 26px;
+        text-transform: uppercase;
+      }
+      main.content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      section.content__box {
+        max-width: 1200px;
+        width: 100%;
+        padding: 50px 15px;
+      }
+      .content--box--text{
+        padding: 50px 15px 20px;
+      }
+      .content--box--text h2{
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .content--box--text p{
+        margin-bottom: 12px;
+      }
+      .box-list {
+        padding: 30px 50px;
+      }
+      @media screen and (max-width: 768px) {
+        .box-list {
+          padding: 30px 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <main class="content">
+      <header>
+        <div class="back">
+          <a href="widgets.html"> voltar</a>
+        </div>
+        <h1>Widget com calendário</h1>
+      </header>
+      <section class="content__box">
+        <div class="widget-reserva">
+          <div class="suites-availability-go" data-suite="10430" data-calendario="1"></div>
+        </div>
+      </section>
+      <div class="content--box--text">
+        <h2>Para adicionar no site:</h2>
+
+        <p>
+          O widget 'div' pode ser utilizado em qualquer domínio, desde que
+            contenha o ID da suíte que possui a reserva.
+        </p>
+        <p>
+          Caso o motel disponha apenas de reservas imediatas, no desktop será exibido somente o calendário, e no mobile aparecerão a reserva imediata e o calendário.        
+        </p>
+
+        <div class="box-list">
+          <ul>
+            <li>
+              Primeiro, é necessário adicionar esses links CSS no
+              <span>&lt;head&gt;&lt;/head&gt;</span>
+            </li>
+          </ul>
+
+          <div style="position: relative">
+            <button
+              onclick="copyCode(this)"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+              "
+            >
+              Copiar
+            </button>
+
+            <pre>
+              <code class="language-html codeBlock">
+                  &lt;link rel="stylesheet" href="https://go.guiademoteis.com.br/go-sites/go.min.css"&gt;
+                  &lt;link rel="stylesheet" href="widget-calendario.css"&gt;
+              </code>
+          </pre>
+          </div>
+          <p>
+            **Baixe o arquivo CSS, onde é possível alterar as cores do widget:
+            <a href="css/widget-calendario.css" download>baixar</a>
+          </p>
+        </div>
+
+        <div class="box-list">
+          <ul>
+            <li>
+              Depois, inclua este código onde deseja que o widget seja
+                exibido.
+            </li>
+          </ul>
+          <div style="position: relative">
+            <button
+              onclick="copyCode(this)"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+              "
+            >
+              Copiar
+            </button>
+
+            <pre>
+                  <code class="language-html codeBlock">
+                      &lt;div class="suites-availability-go" data-suite="10430" data-calendario="1"&gt;&lt;/div&gt;
+                  </code>
+              </pre>
+          </div>
+          <br><br>
+          <ul>
+            <li>
+              Para definir o calendário como aba inicial, adicione data-aba='calendario' no código do widget.
+            </li>
+          </ul>
+          <div style="position: relative">
+            <button
+              onclick="copyCode(this)"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+              "
+            >
+              Copiar
+            </button>
+
+            <pre>
+                  <code class="language-html codeBlock">
+                      &lt;div class="suites-availability-go" data-suite="10430" data-calendario="1" data-aba="calendario"&gt;&lt;/div&gt;
+                  </code>
+              </pre>
+          </div>
+        </div>
+        <div class="box-list">
+          <ul>
+            <li>
+              Colocar esse link js antes do fechamento do
+              <span>&lt;/body&gt;</span>
+            </li>
+          </ul>
+
+          <div style="position: relative">
+            <button
+              onclick="copyCode(this)"
+              style="
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                cursor: pointer;
+              "
+            >
+              Copiar
+            </button>
+
+            <pre>
+                  <code class="language-html codeBlock">
+                      &lt;link rel="stylesheet" href="https://go.guiademoteis.com.br/go-sites/go.min.js"&gt;
+                  </code>
+              </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://go.guiademoteis.com.br/go-sites/go.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+  <script>
+    function copyCode(button) {
+      const codeElement = button.parentElement.querySelector("code");
+
+      if (!codeElement) {
+        alert("Erro ao copiar código!");
+        return;
+      }
+
+      const textArea = document.createElement("textarea");
+      textArea.value = codeElement.textContent.trim();
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("Código copiado!");
+    }
+  </script>
+</body>
+</html>
+
